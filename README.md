@@ -1,0 +1,2 @@
+# VibeCodingSCM
+Vibe Coding SCM
