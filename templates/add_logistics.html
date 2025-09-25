@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}添加物流订单 - SCM 供应链管理系统{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="card">
+            <div class="card-header">
+                <h3><i class="fas fa-plus"></i> 添加物流订单</h3>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="order_id" class="form-label">订单号 *</label>
+                        <input type="text" class="form-control" id="order_id" name="order_id"
+                               placeholder="例如: L001" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="supplier_id" class="form-label">供应商 *</label>
+                        <select class="form-select" id="supplier_id" name="supplier_id" required>
+                            <option value="">请选择供应商</option>
+                            {% for supplier in suppliers %}
+                            <option value="{{ supplier.id }}">{{ supplier.name }} (ID: {{ supplier.id }})</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="destination" class="form-label">目的地 *</label>
+                        <input type="text" class="form-control" id="destination" name="destination"
+                               placeholder="例如: 北京市海淀区仓库" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">订单状态</label>
+                        <div class="form-control-plaintext">
+                            <span class="badge bg-warning">待出货</span>
+                            <small class="text-muted">（新订单默认为待出货状态）</small>
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a href="{{ url_for('logistics') }}" class="btn btn-secondary me-md-2">
+                            <i class="fas fa-arrow-left"></i> 返回
+                        </a>
+                        <button type="submit" class="btn btn-success">
+                            <i class="fas fa-save"></i> 创建订单
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

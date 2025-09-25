@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block title %}主页 - SCM 供应链管理系统{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="jumbotron bg-light p-5 rounded">
+            <h1 class="display-4">
+                <i class="fas fa-cubes text-primary"></i> SCM 供应链管理系统
+            </h1>
+            <p class="lead">欢迎使用供应链管理系统的演示版本。本系统包含供应商管理、物流管理、库存管理和配送管理等核心功能。</p>
+            <hr class="my-4">
+            <p>这是一个基于 Python Flask 开发的完整演示系统，所有数据存储在服务器内存中，重启后将重置为初始状态。</p>
+            <div class="row mt-4">
+                <div class="col-md-3">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <i class="fas fa-truck fa-3x text-primary mb-3"></i>
+                            <h5 class="card-title">供应商管理</h5>
+                            <p class="card-text">管理供应商信息，包括增删改查操作</p>
+                            <a href="{{ url_for('suppliers') }}" class="btn btn-primary">进入管理</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <i class="fas fa-shipping-fast fa-3x text-success mb-3"></i>
+                            <h5 class="card-title">物流管理</h5>
+                            <p class="card-text">管理物流订单和运输状态跟踪</p>
+                            <a href="{{ url_for('logistics') }}" class="btn btn-success">进入管理</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <i class="fas fa-warehouse fa-3x text-warning mb-3"></i>
+                            <h5 class="card-title">库存管理</h5>
+                            <p class="card-text">管理商品库存，包括入库和出库操作</p>
+                            <a href="{{ url_for('inventory') }}" class="btn btn-warning">进入管理</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <i class="fas fa-truck-moving fa-3x text-info mb-3"></i>
+                            <h5 class="card-title">配送管理</h5>
+                            <p class="card-text">管理配送订单和配送状态更新</p>
+                            <a href="{{ url_for('delivery') }}" class="btn btn-info">进入管理</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fas fa-info-circle"></i> 系统特性</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><i class="fas fa-check text-success"></i> 基于 Python Flask 开发</li>
+                    <li class="list-group-item"><i class="fas fa-check text-success"></i> 服务器端模板渲染</li>
+                    <li class="list-group-item"><i class="fas fa-check text-success"></i> 响应式 Bootstrap 界面</li>
+                    <li class="list-group-item"><i class="fas fa-check text-success"></i> 内存数据存储（演示用）</li>
+                    <li class="list-group-item"><i class="fas fa-check text-success"></i> 完整的 CRUD 操作</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fas fa-lightbulb"></i> 使用说明</h5>
+            </div>
+            <div class="card-body">
+                <p>这是一个演示系统，所有数据都存储在服务器内存中：</p>
+                <ul>
+                    <li>刷新页面或重启服务器将重置所有数据</li>
+                    <li>系统包含预设的示例数据</li>
+                    <li>所有操作都是实时的内存操作</li>
+                    <li>适合学习和演示供应链管理流程</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
